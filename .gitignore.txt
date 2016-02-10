@@ -1,2 +1,0 @@
-##QT COMPILE CONFIG
-*.pro.user
