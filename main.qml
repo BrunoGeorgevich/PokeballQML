@@ -8,6 +8,9 @@ ApplicationWindow {
     visible: true
 
     Pokeball {
-        anchors.fill: parent
+        color:"transparent"
+        //width: parent.width/4; height: parent.height/4
+        //anchors { bottom:parent.bottom; right:parent.right }
+        anchors.fill:parent
     }
 }

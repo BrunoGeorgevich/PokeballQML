@@ -12,6 +12,8 @@ Rectangle {
     property string minorCentralCircleColorNormal : "Black"
     property string minorCentralCircleColorCapturing : "yellow"
     property string lineColor : "Black"
+    property var defaultAngle : 25
+    property var rotateVelocity : 70
 
     state:"normal"
 
@@ -38,7 +40,7 @@ Rectangle {
                 var centreY = height / 2;
 
                 ctx.strokeStyle = lineColor
-                ctx.lineWidth = 10;
+                ctx.lineWidth = pokeballRoot.height/60;
 
                 //Draw the red arc
                 ctx.beginPath();
@@ -56,17 +58,18 @@ Rectangle {
                 ctx.fill();
                 ctx.stroke();
 
-                //The major central circle
+                //Draw Central Line
                 ctx.beginPath();
-                ctx.fillStyle = majorCentralCircleColor;
-                ctx.arc(centreX, centreY, width / 10, 0, 2*Math.PI, true);
-                ctx.fill();
+                ctx.lineWidth = pokeballRoot.height/20;
+                ctx.moveTo(0+pokeball.width/100,centreY);
+                ctx.lineTo(pokeball.width*0.99,centreY);
                 ctx.stroke();
 
-                //The minor central circle
+                //The major central circle
                 ctx.beginPath();
-                ctx.fillStyle = minorCentralCircleColorNormal;
-                ctx.arc(centreX, centreY, width / 20, 0, 2*Math.PI, true);
+                ctx.lineWidth = pokeballRoot.height/60;
+                ctx.fillStyle = majorCentralCircleColor;
+                ctx.arc(centreX, centreY, width / 8, 0, 2*Math.PI, true);
                 ctx.fill();
                 ctx.stroke();
             }
@@ -142,16 +145,16 @@ Rectangle {
                     SmoothedAnimation {
                         target:rotationCenterRect
                         property: "angle"
-                        from:-25
-                        to: 25
-                        velocity: 80
+                        from:-defaultAngle
+                        to: defaultAngle
+                        velocity: rotateVelocity
                     }
                     SmoothedAnimation {
                         target:rotationCenterRect
                         property: "angle"
-                        from:25
-                        to: -25
-                        velocity: 80
+                        from:defaultAngle
+                        to: -defaultAngle
+                        velocity: rotateVelocity
                     }
                 }
             }
@@ -163,7 +166,7 @@ Rectangle {
                 target:rotationCenterRect
                 property: "angle"
                 to: 0
-                velocity: 80
+                velocity: rotateVelocity
             }
             PropertyAction {
                 target:centralCircle
