@@ -73,20 +73,6 @@ Rectangle {
                 ctx.fill();
                 ctx.stroke();
             }
-
-            MouseArea {
-                anchors.fill: parent
-                onClicked : {
-                    switch(pokeballRoot.state) {
-                    case "normal":
-                        pokeballRoot.state = "capturing"
-                        break;
-                    case "capturing":
-                        pokeballRoot.state = "normal"
-                        break;
-                    }
-                }
-            }
             Rectangle {
                 id:centralCircle
                 anchors.centerIn: parent
