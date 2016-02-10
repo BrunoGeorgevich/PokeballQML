@@ -1,3 +1,6 @@
+<<<<<<< HEAD
+unix:!android {
+=======
 android-no-sdk {
     target.path = /data/user/qt
     export(target.path)
@@ -13,6 +16,7 @@ android-no-sdk {
     export(target.path)
     INSTALLS += target
 } else:unix {
+>>>>>>> 2b912121d25d10c0457c45c9ace0202be5884939
     isEmpty(target.path) {
         qnx {
             target.path = /tmp/$${TARGET}/bin
@@ -25,3 +29,7 @@ android-no-sdk {
 }
 
 export(INSTALLS)
+<<<<<<< HEAD
+
+=======
+>>>>>>> 2b912121d25d10c0457c45c9ace0202be5884939

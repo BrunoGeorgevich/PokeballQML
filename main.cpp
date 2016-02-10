@@ -10,3 +10,7 @@ int main(int argc, char *argv[])
 
     return app.exec();
 }
+<<<<<<< HEAD
+
+=======
+>>>>>>> 2b912121d25d10c0457c45c9ace0202be5884939
